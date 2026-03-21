@@ -1,0 +1,25 @@
+{
+    "name": "WineHQ",
+    "id": "winehq",
+    "version": "0.0.1",
+    "description": "Run Windows applications on linux devcontainer",
+    "options": {
+        "branch": {
+            "type": "string",
+            "proposals": [
+                "stable",
+                "staging",
+                "deval"
+            ],
+            "default": "stable",
+            "description": "Install package from branch"
+        },
+        "version": {
+            "type": "string",
+            "default": "latest"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
