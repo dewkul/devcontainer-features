@@ -13,12 +13,11 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
-          - hello
+          - winehq
         baseImage:
-          - debian:latest
-          - ubuntu:latest
           - mcr.microsoft.com/devcontainers/base:ubuntu
+          - mcr.microsoft.com/devcontainers/base:debian
+          - mcr.microsoft.com/devcontainers/base:alpine
     steps:
       - uses: actions/checkout@v4
 
@@ -34,8 +33,7 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
-          - hello
+          - winehq
     steps:
       - uses: actions/checkout@v4
 
