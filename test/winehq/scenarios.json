@@ -1,0 +1,28 @@
+{
+    "stable-10": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "features": {
+            "winehq": {
+                "branch": "stable",
+                "version": "10"
+            }
+        }
+    },
+    "devel-11": {
+        "image": "mcr.microsoft.com/devcontainers/base:jammy",
+        "features": {
+            "winehq": {
+                "branch": "devel",
+                "version": "11"
+            }
+        }
+    },
+    "alpine-10": {
+        "image": "mcr.microsoft.com/devcontainers/base:alpine",
+        "features": {
+            "winehq": {
+                "version": "10"
+            }
+        }
+    }
+}
