@@ -22,6 +22,7 @@ check_compatibility() {
         echo "Linux distro ${ID} is not supported."
         exit 1
     fi
+    echo "Using $package_manager as package manager"
 }
 
 add_wine_repo() {
@@ -38,7 +39,7 @@ add_wine_repo() {
 
 pin_wine_version() {
     if [ $WINE_VERSION == "latest" ]; then
-        echo "Installing latest $WINE_BRANCH version of wine"
+        echo "Set latest version of wine"
         return
     fi
 
@@ -55,6 +56,7 @@ EOF > /etc/apt/perferences.d/winehq.pref
 }
 
 install_wine() {
+    echo "Installing winehq-$WINE_BRANCH"
     if [ $package_manager == "apt" ]; then
         export DEBIAN_FRONTEND=noninteractive
 
