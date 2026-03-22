@@ -16,6 +16,8 @@ get_distro() {
 check_compatibility() {
     if [ $ID == "ubuntu" ] || [ $ID == "debian" ] ; then 
         package_manager="apt"
+    elif [ $ID == "alpine" ]; then
+        package_manager="apk"
     elif [ $ID == "fedora" ] ; then
         package_manager="dnf"
     else
@@ -32,7 +34,7 @@ add_wine_repo() {
 
         sudo dpkg --add-architecture i386
         sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/${ID}/dists/${UBUNTU_CODENAME:-$VERSION_CODENAME}/winehq-${UBUNTU_CODENAME:-$VERSION_CODENAME}.sources
-    elif [ $package_manager == "yum" ]; then
+    elif [ $package_manager == "dnf" ]; then
         sudo dnf config-manager addrepo --from-repofile=https://dl.winehq.org/wine-builds/fedora/${VERSION_ID}/winehq.repo
     fi
 }
@@ -46,11 +48,13 @@ pin_wine_version() {
     echo "Pinning wine version to $WINE_VERSION"
 
     if [ $package_manager == "apt" ]; then
-        cat > /etc/apt/perferences.d/winehq.pref << EOF
+        cat > /etc/apt/preferences.d/winehq.pref << EOF
 Package: *wine* *wine*:i386
 Pin: version $WINE_VERSION~*
 Pin-Priority: 1001
 EOF
+    elif [ $package_manager == "apk" ]; then
+        package="wine~=$WINE_VERSION"
     fi
 }
 
@@ -61,6 +65,9 @@ install_wine() {
 
         apt-get update
         apt-get install --install-recommends -y winehq-$WINE_BRANCH
+    elif [ $package_manager == "apk" ]; then
+        apk update
+        apk add ${package:-"wine"}
     fi
 }
 

@@ -2,7 +2,7 @@
     "name": "WineHQ",
     "id": "winehq",
     "version": "0.0.1",
-    "description": "Run Windows applications on linux devcontainer",
+    "description": "Running Windows programs on linux devcontainer",
     "options": {
         "branch": {
             "type": "string",
