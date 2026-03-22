@@ -46,12 +46,11 @@ pin_wine_version() {
     echo "Pinning wine version to $WINE_VERSION"
 
     if [ $package_manager == "apt" ]; then
-        cat \ 
-<<EOF
+        cat > /etc/apt/perferences.d/winehq.pref << EOF
 Package: *wine* *wine*:i386
 Pin: version $WINE_VERSION~*
 Pin-Priority: 1001
-EOF > /etc/apt/perferences.d/winehq.pref
+EOF
     fi
 }
 
@@ -67,6 +66,6 @@ install_wine() {
 
 get_distro
 check_compatibility
-# add_wine_repo
+add_wine_repo
 pin_wine_version
-# install_wine
+install_wine
