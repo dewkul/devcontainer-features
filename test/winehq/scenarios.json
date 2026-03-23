@@ -4,7 +4,7 @@
         "features": {
             "winehq": {
                 "branch": "stable",
-                "version": "10"
+                "version": "10*"
             }
         }
     },
@@ -13,7 +13,7 @@
         "features": {
             "winehq": {
                 "branch": "devel",
-                "version": "11"
+                "version": "11*"
             }
         }
     },
@@ -21,7 +21,7 @@
         "image": "mcr.microsoft.com/devcontainers/base:alpine",
         "features": {
             "winehq": {
-                "version": "10"
+                "version": "10.19-r0"
             }
         }
     }

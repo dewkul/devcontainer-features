@@ -6,7 +6,7 @@ set -e
 source dev-container-features-test-lib
 
 # wine
-check "wine version" wine --version
+check "wine installed" wine --version
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.

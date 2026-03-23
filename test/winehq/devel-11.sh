@@ -6,8 +6,8 @@ set -e
 source dev-container-features-test-lib
 
 # wine
-check "wine" wine --version
-# check "wine version" bash -c "wine --version | grep 'wine-11.*Devel'"
+check "wine installed" wine --version
+check "wine version" bash -c "wine --version | grep 'wine-11'"
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.

@@ -6,6 +6,7 @@ set -e
 source dev-container-features-test-lib
 
 # wine
+check "wine installed" wine --version
 check "wine version" bash -c "wine --version | grep 'wine-10'"
 
 # Report result
