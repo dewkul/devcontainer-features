@@ -1,7 +1,7 @@
 
 # WineHQ (winehq)
 
-Running Windows programs on linux devcontainer
+Install wine, run Windows programs on linux devcontainer
 
 ## Example Usage
 
@@ -15,10 +15,21 @@ Running Windows programs on linux devcontainer
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| branch | Install package from branch | string | stable |
-| version | - | string | latest |
+| branch | Install wine from branch stable / staging / devel | string | stable |
+| version | Specify wine version | string | latest |
 
+# Supported images
 
+A list of images that successfully passed the test
+- **Ubuntu** 
+    - mcr.microsoft.com/devcontainers/base:ubuntu
+    - mcr.microsoft.com/devcontainers/base:noble
+- **Debian** - 
+    - mcr.microsoft.com/devcontainers/base:debian
+    - mcr.microsoft.com/devcontainers/base:trixie
+- **Alpine** - 
+    - mcr.microsoft.com/devcontainers/base:alpine
+    - mcr.microsoft.com/devcontainers/base:alpine-3.22
 
 ---
 
