@@ -50,11 +50,11 @@ pin_wine_version() {
     if [ $package_manager == "apt" ]; then
         cat > /etc/apt/preferences.d/winehq.pref << EOF
 Package: *wine* *wine*:i386
-Pin: version $WINE_VERSION~*
+Pin: version $WINE_VERSION
 Pin-Priority: 1001
 EOF
     elif [ $package_manager == "apk" ]; then
-        package="wine~=$WINE_VERSION"
+        package="wine==$WINE_VERSION"
     fi
 }
 
@@ -71,8 +71,20 @@ install_wine() {
     fi
 }
 
+cleanup() {
+    if [ $package_manager == "apt" ]; then
+        apt-get purge --auto-remove -y
+        apt-get autoremove --purge -y
+        rm -rf /var/lib/apt/list/*
+    elif [ $package_manager == "apk" ]; then
+        apk cache clean
+        rm -rf /var/cache/apk/*
+    fi
+}
+
 get_distro
 check_compatibility
 add_wine_repo
 pin_wine_version
 install_wine
+cleanup
