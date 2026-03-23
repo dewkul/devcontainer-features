@@ -9,14 +9,15 @@
             "proposals": [
                 "stable",
                 "staging",
-                "deval"
+                "devel"
             ],
             "default": "stable",
-            "description": "Install package from branch"
+            "description": "Install wine from branch stable / staging / devel"
         },
         "version": {
             "type": "string",
-            "default": "latest"
+            "default": "latest",
+            "description": "Specify wine version"
         }
     },
     "installsAfter": [
