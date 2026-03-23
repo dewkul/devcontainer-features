@@ -15,9 +15,9 @@ jobs:
         features:
           - winehq
         baseImage:
-          - mcr.microsoft.com/devcontainers/base:ubuntu
-          - mcr.microsoft.com/devcontainers/base:debian
-          - mcr.microsoft.com/devcontainers/base:alpine
+          - mcr.microsoft.com/devcontainers/base:noble
+          - mcr.microsoft.com/devcontainers/base:trixie
+          - mcr.microsoft.com/devcontainers/base:alpine-3.22
     steps:
       - uses: actions/checkout@v4
 
