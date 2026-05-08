@@ -1,0 +1,26 @@
+{
+    "name": "WineHQ",
+    "id": "winehq",
+    "version": "0.0.2",
+    "description": "Install wine, run Windows programs on linux devcontainer",
+    "options": {
+        "branch": {
+            "type": "string",
+            "proposals": [
+                "stable",
+                "staging",
+                "devel"
+            ],
+            "default": "stable",
+            "description": "Install wine from branch stable / staging / devel"
+        },
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "Specify wine version"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

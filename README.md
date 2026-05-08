@@ -62,7 +62,7 @@ Similar to the [`devcontainers/features`](https://github.com/devcontainers/featu
 │   ├── color
 │   │   ├── devcontainer-feature.json
 │   │   └── install.sh
-|   ├── ...
+|   ├── winehq
 │   │   ├── devcontainer-feature.json
 │   │   └── install.sh
 ...
