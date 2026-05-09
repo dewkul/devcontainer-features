@@ -20,6 +20,7 @@
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
+    "postCreateCommand": ".devcontainer/fix-dind.sh",
     "remoteUser": "node",
     "updateContentCommand": "npm install -g @devcontainers/cli"
 }
