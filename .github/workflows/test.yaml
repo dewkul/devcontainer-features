@@ -18,6 +18,10 @@ jobs:
           - mcr.microsoft.com/devcontainers/base:ubuntu
           - mcr.microsoft.com/devcontainers/base:debian
           - mcr.microsoft.com/devcontainers/base:alpine
+        javaFeatures:
+          - android-sdk
+        javaImage:
+          - mcr.microsoft.com/devcontainers/java:3-21-trixie
     steps:
       - uses: actions/checkout@v4
 
@@ -27,6 +31,8 @@ jobs:
       - name: "Generating tests for '${{ matrix.features }}' against '${{ matrix.baseImage }}'"
         run: devcontainer features test --skip-scenarios -f ${{ matrix.features }} -i ${{ matrix.baseImage }} .
 
+      - name: "Generating tests for '${{ matrix.javaFeatures }}' against '${{ matrix.javaImage }}'"
+        run: devcontainer features test --skip-scenarios -f ${{ matrix.javaFeatures }} -i ${{ matrix.javaImage }} .
   test-scenarios:
     runs-on: ubuntu-latest
     continue-on-error: true
