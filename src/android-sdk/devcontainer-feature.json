@@ -1,0 +1,20 @@
+{
+    "name": "Android SDK",
+    "id": "android-sdk",
+    "version": "0.0.1",
+    "description": "",
+    "options": {
+        "sdkComponents": {
+            "type": "string",
+            "default": "platform-tools",
+            "description": "multiple components supported, split by `,`"
+        },
+        "androidHome": {
+            "type": "string",
+            "default": "/home/vscode/.android"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}
