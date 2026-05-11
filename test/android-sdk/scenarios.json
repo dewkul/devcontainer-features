@@ -1,0 +1,13 @@
+{
+    "ts-node-based": {
+        "image": "mcr.microsoft.com/devcontainers/typescript-node:trixie",
+        "features": {
+            "android-sdk": {
+                "sdkComponents": "platform-tools",
+                "androidHome": "/home/node/.android",
+                "installJdk": "true",
+                "jdkVersion": 21
+            }
+        }
+    }
+}

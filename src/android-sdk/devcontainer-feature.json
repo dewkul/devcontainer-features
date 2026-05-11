@@ -7,14 +7,23 @@
         "sdkComponents": {
             "type": "string",
             "default": "platform-tools",
-            "description": "multiple components supported, split by `,`"
+            "description": "Enter components to install, split multiple components by comma ` `"
         },
         "androidHome": {
             "type": "string",
-            "default": "/home/vscode/.android"
+            "default": "/home/vscode/.android",
+            "description": "Enter path for android home"
+        },
+        "installJdk": {
+            "type": "boolean",
+            "default": false,
+            "description": "Install JDK"
+        },
+        "jdkVersion": {
+            "type": "string",
+            "default": "21",
+            "description": "Enter Java version to install"
         }
     },
-    "installsAfter": [
-        "ghcr.io/devcontainers/features/common-utils"
-    ]
+    "installsAfter": []
 }
