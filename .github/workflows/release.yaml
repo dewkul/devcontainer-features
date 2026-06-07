@@ -1,6 +1,6 @@
 name: "Release dev container features & Generate Documentation"
 on:
-   push:
+  push:
     branches:
       - main
   workflow_dispatch:
