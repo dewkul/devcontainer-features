@@ -15,7 +15,7 @@
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| sdkComponents | Enter components to install, split multiple components by comma `,` | string | platform-tools |
+| sdkComponents | Enter components to install, split multiple components by comma `,` | string | platform-tools,build-tools;33.0.0 |
 | sdkToolsVersion | - | string | 14742923 |
 | androidHome | Enter path for android home | string | /home/vscode/.android |
 | installJdk | Install JDK | boolean | false |
