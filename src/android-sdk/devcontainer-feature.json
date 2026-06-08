@@ -1,13 +1,17 @@
 {
     "name": "Android SDK",
     "id": "android-sdk",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "",
     "options": {
         "sdkComponents": {
             "type": "string",
             "default": "platform-tools",
-            "description": "Enter components to install, split multiple components by comma ` `"
+            "description": "Enter components to install, split multiple components by comma `,`"
+        },
+        "sdkToolsVersion": {
+            "type": "string",
+            "default": "14742923"
         },
         "androidHome": {
             "type": "string",
