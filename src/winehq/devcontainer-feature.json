@@ -1,7 +1,7 @@
 {
     "name": "WineHQ",
     "id": "winehq",
-    "version": "0.0.2",
+    "version": "1.0.0",
     "description": "Install wine, run Windows programs on linux devcontainer",
     "options": {
         "branch": {
