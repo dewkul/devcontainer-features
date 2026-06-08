@@ -27,6 +27,18 @@ check_packages() {
 
 check_packages curl unzip xz-utils zip wget
 
+# Setup SDK tools
+ANDROID_SDK_URL="https://dl.google.com/android/repository/commandlinetools-linux-${SDK_TOOLS_VERSION}_latest.zip"
+
+wget -q "$ANDROID_SDK_URL" -O /tmp/cmdline-tools.zip
+unzip -oq /tmp/cmdline-tools.zip -d /tmp
+
+mkdir -p $ANDROID_HOME/cmdline-tools/latest
+mv /tmp/cmdline-tools/* $ANDROID_HOME/cmdline-tools/latest/ 2>/dev/null || true
+
+# install SDK components
+yes | "${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager" --licenses && \
+        "${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager" "${SDK_COMPONENTS_ARRAY[@]}"
 
 # Install JDK via java features
 if [[ "${INSTALL_JDK}" = "true" ]] && ! /usr/local/sdkman/candidates/java/current/bin/java --version > /dev/null 2>&1; then
@@ -36,18 +48,5 @@ if [[ "${INSTALL_JDK}" = "true" ]] && ! /usr/local/sdkman/candidates/java/curren
         "ghcr.io/devcontainers/features/java:1" \
         --option version="$JDK_VERSION"
 fi
-
-# Setup SDK tools
-ANDROID_SDK_URL="https://dl.google.com/android/repository/commandlinetools-linux-${SDK_TOOLS_VERSION}_latest.zip"
-
-wget -q "$ANDROID_SDK_URL" -O /tmp/cmdline-tools.zip
-unzip -oq /tmp/cmdline-tools.zip -d /tmp
-
-mkdir -p $ANDROID_HOME/cmdline-tools/${SDK_TOOLS_VERSION}
-mv /tmp/cmdline-tools/* $ANDROID_HOME/cmdline-tools/${SDK_TOOLS_VERSION}/ 2>/dev/null || true
-
-# install SDK components
-yes | ${ANDROID_HOME}/cmdline-tools/${SDK_TOOLS_VERSION}/bin/sdkmanager --licenses && \
-        ${ANDROID_HOME}/cmdline-tools/${SDK_TOOLS_VERSION}/bin/sdkmanager ${SDK_COMPONENTS_ARRAY[@]}
 
 echo "Done!"

@@ -3,7 +3,7 @@
         "image": "mcr.microsoft.com/devcontainers/typescript-node:trixie",
         "features": {
             "android-sdk": {
-                "sdkComponents": "platform-tools",
+                "sdkComponents": "platform-tools,build-tools;33.0.0",
                 "androidHome": "/home/node/.android",
                 "installJdk": "true",
                 "jdkVersion": 21

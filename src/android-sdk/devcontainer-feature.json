@@ -6,7 +6,7 @@
     "options": {
         "sdkComponents": {
             "type": "string",
-            "default": "platform-tools",
+            "default": "platform-tools,build-tools;33.0.0",
             "description": "Enter components to install, split multiple components by comma `,`"
         },
         "sdkToolsVersion": {
